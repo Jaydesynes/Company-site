@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Adding Futura font - Note: Futura isn't available on Google Fonts, so we're using system fonts */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    
+    --primary: 232 95% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+    
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 6% 10%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 232 95% 55%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 225 25% 7%;
+    --foreground: 210 20% 98%;
+    
+    --card: 224 25% 10%;
+    --card-foreground: 210 20% 98%;
+    
+    --popover: 224 25% 7%;
+    --popover-foreground: 210 20% 98%;
+    
+    --primary: 232 95% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 228 18% 15%;
+    --secondary-foreground: 210 20% 98%;
+    
+    --muted: 228 15% 20%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    
+    --accent: 228 18% 20%;
+    --accent-foreground: 210 20% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+    
+    --border: 228 15% 15%;
+    --input: 228 15% 15%;
+    --ring: 232 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Add styles for emphasized text elements */
+  strong, b {
+    @apply font-bold;
+  }
+  
+  em, i {
+    @apply font-bold italic;
+  }
+  
+  /* Make text-gradient emphasized text bold by default */
+  .text-gradient {
+    @apply font-bold;
+  }
+  
+  /* Make headings and important text bolder */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold font-display;
+  }
+  
+  /* Theme transition for smoother switching */
+  .theme-transition {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply dark:bg-background/70 bg-white/80 dark:backdrop-blur-xl backdrop-blur-md border border-white/20 dark:border-white/10;
+  }
+  
+  .text-gradient {
+    @apply dark:bg-gradient-to-r dark:from-blue-400 dark:to-blue-600 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent font-display;
+  }
+  
+  .premium-button {
+    @apply relative bg-background hover:bg-background/90 text-foreground border border-primary/50 hover:border-primary transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none shadow-sm font-display font-bold;
+  }
+  
+  .premium-card {
+    @apply bg-gradient-to-b from-card to-card/80 backdrop-blur-sm border border-white/10 hover:border-primary/50 transition-all duration-300 shadow-md;
+  }
+}
+
+/* Update App.css styles to be compatible with our theme */
+#root {
+  @apply w-full max-w-[1400px] mx-auto;
+}
+
+.logo:hover {
+  @apply dark:filter-none filter brightness-110;
+}
+
+.logo.react:hover {
+  @apply dark:filter-none filter brightness-110;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  @apply p-6;
+}
+
+.read-the-docs {
+  @apply text-muted-foreground;
+}
